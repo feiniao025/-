@@ -45,7 +45,7 @@ $$(function() {
                 success: (data) => {
                   if (data) {
                     if (data.status == 0) {
-                      $$(this).parent().prev().children('span.fr').text('完成1000.0%')
+                      $$(this).parent().prev().children('span.fr').text('完成100.0%')
                       // alert('成功')
                     } else if (data.status == 1) {
                       alert("进度记录失败，请刷新页面重试！")
