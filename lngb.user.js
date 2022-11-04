@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name         半自动学习
+// @name         辽宁干部在线
 // @namespace    http://tampermonkey.net/
 // @version      0.2
 // @description  try to take over the world!
 // @author       Cube
-// @match        http://zyjs.lngbzx.gov.cn/*
-// @require      http://zyjs.lngbzx.gov.cn/js/jquery/jquery-1.12.3.min.js
+// @match        https://zyjs.lngbzx.gov.cn/*
+// @require      https://zyjs.lngbzx.gov.cn/js/jquery/jquery-1.12.3.min.js
 // @updateURL    https://cdn.jsdelivr.net/gh/miseli/cCDN/lngb.user.js
 // @grant        none
 // ==/UserScript==
@@ -14,7 +14,7 @@
 console.log('version v0.2')
 let $$ = $.noConflict()
 $$(function() {
-  if (/http:\/\/zyjs.lngbzx.gov.cn\/study\/yearplan\/gostudy/.test(location.href)) {
+  if (/https:\/\/zyjs.lngbzx.gov.cn\/study\/yearplan\/gostudy/.test(location.href)) {
     alert('不支持"作者略"的课程,详情咨询开发者')
 
     function ajaxshuke(cid, len = 10000, bixuan = true) {
@@ -68,7 +68,7 @@ $$(function() {
     }
     let shuakehandler = function(e) {
       let { cid, scid } = $$(this).data()
-      $$.get(`http://zyjs.lngbzx.gov.cn/study/resource/info/${cid}/${scid}`, res => {
+      $$.get(`https://zyjs.lngbzx.gov.cn/study/resource/info/${cid}/${scid}`, res => {
         let len = $$(res).find('#readvideoform').serializeArray().filter(item => {
           let { name, value } = item;
           return name.toLocaleLowerCase().indexOf('length') !== -1;
